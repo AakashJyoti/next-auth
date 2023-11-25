@@ -5,7 +5,7 @@ export const options = {
   providers: [
     GitHubProvider({
       profile(profile) {
-        console.log("GitHubProvider", profile);
+        // console.log("GitHubProvider", profile);
         let userRole = "GitHub User";
         if (profile?.email == "akjyoti572@gmail.com") {
           userRole = "admin";
@@ -13,6 +13,8 @@ export const options = {
         return {
           ...profile,
           role: userRole,
+          name: profile.login,
+          image: profile.avatar_url
         };
       },
       clientId: process.env.GITHUB_ID,
@@ -20,7 +22,7 @@ export const options = {
     }),
     GoogleProvider({
       profile(profile) {
-        console.log("GoogleProvider", profile);
+        // console.log("GoogleProvider", profile);
         return {
           ...profile,
           id: profile.sub,

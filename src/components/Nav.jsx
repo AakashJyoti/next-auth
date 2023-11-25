@@ -4,6 +4,8 @@ import Link from "next/link";
 
 export default async function Nav() {
   const session = await getServerSession(options);
+  console.log({ session });
+
   return (
     <header className="bg-gray-600 text-white">
       <nav className="flex justify-between items-center w-full px-10 py-4">
