@@ -7,14 +7,14 @@ export const options = {
       profile(profile) {
         // console.log("GitHubProvider", profile);
         let userRole = "GitHub User";
-        if (profile?.email == "akjyoti572@gmail.com") {
+        if (profile?.email == "dev.aakashjyoti@gmail.com") {
           userRole = "admin";
         }
         return {
           ...profile,
           role: userRole,
           name: profile.login,
-          image: profile.avatar_url
+          image: profile.avatar_url,
         };
       },
       clientId: process.env.GITHUB_ID,
@@ -23,8 +23,13 @@ export const options = {
     GoogleProvider({
       profile(profile) {
         // console.log("GoogleProvider", profile);
+        let userRole = "Google User";
+        if (profile?.email == "dev.aakashjyoti@gmail.com") {
+          userRole = "admin";
+        }
         return {
           ...profile,
+          role: userRole,
           id: profile.sub,
         };
       },
